@@ -1,8 +1,17 @@
 .memoWrap {
+    border: rgb(179, 179, 179) solid 1px;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .memoTitle {
-
+        font-size: 20px;
+        font-weight: bold;
     }
     .memoMessage {
-        
+        font-size: 16px;
+        font-weight: 500;
     }
 }
