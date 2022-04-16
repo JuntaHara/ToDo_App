@@ -1,5 +1,3 @@
-import './App.css';
-import Input from './input';
 import { useState } from 'react';
 import MemoList from './components/memoList';
 import MemoForm from './components/memoForm';
@@ -24,7 +22,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
       <h1>To Do</h1>
       <MemoForm submitButtonClickHandler={memoSubmit}/>
       <MemoList memos={memos} />
