@@ -8,13 +8,16 @@ function Memoform(props) {
     
     const [draft, setDraft] = useState({});
     function titleChange(e) {
+        console.log('titleChange', e.target.value);
         setDraft({title:e.target.value});
     }
     function messageChange(e) {
+        console.log('messageChange', e.target.value);
         setDraft({message:e.target.value});
     }
 
     function memoSubmit() {
+        console.log('memoSubmit', draft);
         props.submitButtonClickHandler(draft);
     }
     return(
