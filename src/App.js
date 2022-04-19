@@ -17,14 +17,14 @@ function App() {
       }
     ]);
 
-  function memoSubmit(memoDraft) {
+  function draftToMemos(memoDraft) {
     setMemo([...memos,memoDraft]);
   }
 
   return (
     <div>
       <h1>To Do</h1>
-      <MemoForm submitButtonClickHandler={memoSubmit}/>
+      <MemoForm submitButtonClickHandler={draftToMemos}/>
       <MemoList memos={memos} />
     </div>
   );
