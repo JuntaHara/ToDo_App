@@ -1,0 +1,18 @@
+.memoFormWrap {
+    display: flex;
+    flex-direction: column;
+    Input, Textarea {
+        margin: 20px;
+        padding: 10px;
+    }
+    Button {
+        width: fit-content;
+        color: #fff;
+        background-color: rgb(1, 130, 186);
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 4px;
+        border: none;
+        align-self: center;
+    }
+}
