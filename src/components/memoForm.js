@@ -3,28 +3,36 @@ import Input from './input';
 import Textarea from './textarea';
 import Button from './button';
 import {useState} from 'react';
+import styles from '../styles/memoForm.module.scss';
 
 function Memoform(props) {
     
     const [draft, setDraft] = useState({});
     function titleChange(e) {
         console.log('titleChange', e.target.value);
-        setDraft({title:e.target.value});
+        setDraft({
+            ...draft,
+            title:e.target.value
+        });
     }
     function messageChange(e) {
         console.log('messageChange', e.target.value);
-        setDraft({message:e.target.value});
+        setDraft({
+            ...draft,
+            message:e.target.value
+        });
     }
 
     function memoSubmit() {
         console.log('memoSubmit', draft);
         props.submitButtonClickHandler(draft);
+        setDraft({});
     }
     return(
-        <div>
-            <Input onChangeHandler={titleChange} placeholder="タイトル" value={draft.title}></Input>
-            <Textarea onChangeHandler={messageChange} placeholder="本文" value={draft.message}></Textarea>
-            <Button onClickHandler={memoSubmit}>淳太</Button>
+        <div className={styles.memoFormWrap}>
+            <Input onChangeHandler={titleChange} placeholder="タイトル" value={draft.title || ""}></Input>
+            <Textarea onChangeHandler={messageChange} placeholder="本文" value={draft.message || ""}></Textarea>
+            <Button onClickHandler={memoSubmit}>メモを登録する</Button>
         </div>
     )
 }
