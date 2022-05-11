@@ -9,12 +9,14 @@ function Top() {
       {
         id: '1',
         title: 'トイレットペーパー',
-        message: '残り1ロール!?'
+        message: '残り1ロール!?',
+        deadline: '2022/5/31'
       },
       {
         id: '2',
         title: '社内ブログ',
-        message: 'やばい、社内ブログ書いてない。。。'
+        message: 'やばい、社内ブログ書いてない。。。',
+        deadline: '2022/5/31'
       }
     ]);
 
