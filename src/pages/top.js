@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext  } from 'react';
 import MemoList from '../components/memoList';
 import MemoForm from '../components/memoForm';
+import SettingContext from '../contexts/setting';
 import { Link } from "react-router-dom";
 
 function Top() {
-
+  const { state, dispatch } = useContext(SettingContext);
   const [memos, setMemo] = useState([
       {
         id: '1',
@@ -26,8 +27,8 @@ function Top() {
   }
 
   return (
-    <div>
-      <h1>To Do</h1>
+    <div style={{ padding: '20px', backgroundColor: state.backgroundColor }}>
+      <h1 style={{ fontWeight: 'bold', fontSize: '32px' }}>To Do App</h1>
       <Link to="setting">設定画面</Link>
       <MemoForm submitButtonClickHandler={draftToMemos}/>
       <MemoList memos={memos} />
