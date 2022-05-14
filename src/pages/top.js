@@ -26,8 +26,8 @@ function Top() {
   }
 
   return (
-    <div>
-      <h1>To Do</h1>
+    <div style={{ padding: '20px'}}>
+      <h1 style={{ fontWeight: 'bold', fontSize: '32px' }}>To Do App</h1>
       <Link to="setting">設定画面</Link>
       <MemoForm submitButtonClickHandler={draftToMemos}/>
       <MemoList memos={memos} />
