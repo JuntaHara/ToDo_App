@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
-import MemoList from '../components/memoList';
-import MemoForm from '../components/memoForm';
+import TodoList from '../components/todoList';
+import TodoForm from '../components/todoForm';
 import { Link } from "react-router-dom";
 import SettingContext from '../contexts/setting';
 
 function Top() {
   const { state } = useContext(SettingContext);
 
-  const [memos, setMemo] = useState([
+  const [todos, setTodo] = useState([
       {
         id: '1',
         title: 'トイレットペーパー',
@@ -22,17 +22,17 @@ function Top() {
       }
     ]);
 
-  function draftToMemos(memoDraft) {
-    console.log('draftToMemos', memoDraft);
-    setMemo([...memos,memoDraft]);
+  function draftToTodos(todoDraft) {
+    console.log('draftToTodos', todoDraft);
+    setTodo([...todos,todoDraft]);
   }
 
   return (
     <div style={{ padding: '20px', backgroundColor: state.backgroundColor}}>
       <h1 style={{ fontWeight: 'bold', fontSize: '32px' }}>To Do App</h1>
       <Link to="setting">設定画面</Link>
-      <MemoForm submitButtonClickHandler={draftToMemos}/>
-      <MemoList memos={memos} />
+      <TodoForm submitButtonClickHandler={draftToTodos}/>
+      <TodoList todos={todos} />
     </div>
   );
 }
