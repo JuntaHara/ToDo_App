@@ -1,31 +1,31 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import TodoList from '../components/todoList';
 import TodoForm from '../components/todoForm';
 import { Link } from "react-router-dom";
 import SettingContext from '../contexts/setting';
+import getTodos from '../api/getTodos';
 
 function Top() {
+  const todoValue = getTodos();
+  console.log (todoValue);
   const { state } = useContext(SettingContext);
 
-  const [todos, setTodo] = useState([
-      {
-        id: '1',
-        title: 'トイレットペーパー',
-        message: '残り1ロール!?',
-        deadline: '2022/5/31'
-      },
-      {
-        id: '2',
-        title: '社内ブログ',
-        message: 'やばい、社内ブログ書いてない。。。',
-        deadline: '2022/5/31'
-      }
-    ]);
+  const [todos, setTodo] = useState([]);
 
   function draftToTodos(todoDraft) {
     console.log('draftToTodos', todoDraft);
     setTodo([...todos,todoDraft]);
   }
+
+  useEffect(() => {
+    async function fetchData() {
+      const todos = await getTodos();
+      setTodo(todos);
+    };
+    fetchData();
+  },[]);
+  
+
 
   return (
     <div style={{ padding: '20px', backgroundColor: state.backgroundColor}}>
