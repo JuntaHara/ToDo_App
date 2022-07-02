@@ -6,8 +6,6 @@ import SettingContext from '../contexts/setting';
 import getTodos from '../api/getTodos';
 
 function Top() {
-  const todoValue = getTodos();
-  console.log (todoValue);
   const { state } = useContext(SettingContext);
 
   const [todos, setTodo] = useState([]);
