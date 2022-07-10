@@ -7,8 +7,12 @@ import getTodos from '../api/getTodos';
 
 function Top() {
   const { state } = useContext(SettingContext);
-
   const [todos, setTodo] = useState([]);
+
+  async function fetchData() {
+    const todos = await getTodos();
+    setTodo(todos);
+  };
 
   function draftToTodos(todoDraft) {
     console.log('draftToTodos', todoDraft);
@@ -16,14 +20,8 @@ function Top() {
   }
 
   useEffect(() => {
-    async function fetchData() {
-      const todos = await getTodos();
-      setTodo(todos);
-    };
     fetchData();
   },[]);
-  
-
 
   return (
     <div style={{ padding: '20px', backgroundColor: state.backgroundColor}}>
