@@ -1,6 +1,7 @@
 function getTodos() {
     const spreadId = '1ZTf5ufmf6Z4VdAPDWKSFuLabL-_0P05OaUum1s-sZgc';
-    const apiKey = 'AIzaSyAXPlYKTwzQZ9ufNfuRo5pLz852TSCUUCU';
+    const apiKey = process.env.API_KEY;
+    console.log(apiKey);
     return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadId}/values/todoAPI/?key=${apiKey}`)
       .then(response => response.json())
       .then(data => data.values.map(d => {
